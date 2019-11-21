@@ -107,6 +107,7 @@ public class DeviceControl extends AppCompatActivity {
             SendType.getSendBluetoothLeService.
                     setCharacteristicNotification(SendType.Mycharacteristic, true);
             getResult.add("送出:"+edInput.getText().toString());
+            adapter.notifyDataSetChanged();
             edInput.setText("");
         });
         btClear.setOnClickListener(v -> {
@@ -122,12 +123,12 @@ public class DeviceControl extends AppCompatActivity {
 
     }
 
-    @Override
+    /*@Override
     protected void onPause() {
         super.onPause();
         unregisterReceiver(mGattUpdateReceiver);
     }
-
+*/
     @Override
     protected void onDestroy() {
         super.onDestroy();
